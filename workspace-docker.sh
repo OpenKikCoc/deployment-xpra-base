@@ -8,5 +8,5 @@ docker buildx create --use --name mut-arc-builder
 docker buildx inspect mut-arc-builder --bootstrap
 
 # build
-docker buildx build -t binacslee/xpra-base --platform=linux/amd64,linux/arm64,linux/368,linux/arm/v7 . --push
+docker buildx build -t binacslee/xpra-base --platform=linux/amd64,linux/arm64,linux/386,linux/arm/v7 . --push
 docker buildx imagetools inspect binacslee/xpra-base

@@ -2,9 +2,7 @@ FROM alpine:3.10
 
 ADD ./scripts /usr/sbin
 
-RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main/" \
-    >> /etc/apk/repositories && \
-    echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing/" \
+RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing/" \
     >> /etc/apk/repositories && \
     echo "http://dl-cdn.alpinelinux.org/alpine/v3.10/community/" \
     >> /etc/apk/repositories \
@@ -176,7 +174,3 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main/" \
     && touch /run/openrc/softlevel \
     && /etc/init.d/sshd start > /dev/null 2>&1 \
     && /etc/init.d/sshd stop > /dev/null 2>&1
-
-# docker run ... --volumes-from <ME> -e DISPLAY=<MY_DISPLAY> ... firefox
-# Mount <some_ssh_key>.pub in here to enable xpra via ssh
-VOLUME ["/tmp/.X11-unix", "/etc/pub-keys"]
